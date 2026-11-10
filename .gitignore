@@ -1,0 +1,3 @@
+# Ignore all css files in assets/styles
+#/assets/styles/*.css
+#/assets/styles/*.map
