@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Spotify Web Player Clone - Main Stylesheet
+   Compiles to: assets/styles/main.css
+   Structure: abstracts -> base -> layout -> components -> pages
+   ========================================================================== */
+
+// 1. Base
+@use "base/fonts";
+@use "base/reset";
+@use "base/typography";
+
+// 2. Layout (page frame)
+@use "layout/app";
+@use "layout/sidebar";
+@use "layout/header";
+@use "layout/player";
+@use "layout/friends";
+@use "layout/mobile-nav";
+
+// 3. Reusable components
+@use "components/buttons";
+@use "components/chips";
+@use "components/section";
+@use "components/cards";
+@use "components/tiles";
+@use "components/track-table";
+@use "components/media-head";
+@use "components/tags";
+@use "components/tabs";
+@use "components/toolbar";
+@use "components/hero";
+
+// 4. Page specific styles
+@use "pages/themes";
+@use "pages/search";
+@use "pages/song";
+@use "pages/artist";
+@use "pages/podcast";
+@use "pages/discover";

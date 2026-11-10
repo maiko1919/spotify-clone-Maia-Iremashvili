@@ -1,0 +1,93 @@
+/* =====================
+  Song Page
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.song-hero {
+  display: grid;
+  grid-template-columns: minmax(200px, 340px) minmax(0, 1fr);
+  gap: $space-xxl;
+  margin-bottom: $space-xl;
+
+  &__cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: $radius-md;
+    box-shadow: $shadow-card;
+  }
+
+  &__info {
+    @include flex-column($space-md);
+  }
+
+  @include mobile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-lg;
+
+    &__cover {
+      max-width: 260px;
+    }
+  }
+}
+
+.lyrics {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) minmax(0, 280px);
+  gap: $space-xl;
+  padding-top: $space-lg;
+
+  &__tools {
+    @include flex-column($space-xs);
+  }
+
+  &__lines {
+    @include flex-column($space-xs);
+    padding-left: $space-xxl;
+  }
+
+  &__line {
+    font-size: $fs-lg;
+    font-weight: $fw-bold;
+    color: $color-text-strong;
+  }
+
+  &__line--upcoming {
+    color: $color-text-dim;
+  }
+
+  &__note {
+    align-self: start;
+    padding: $space-md;
+    border: 1px solid $color-border-strong;
+    border-radius: $radius-md;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__note-title {
+    margin-bottom: $space-xs;
+    font-size: $fs-xs;
+    font-weight: $fw-medium;
+    color: $color-text;
+  }
+
+  @include tablet {
+    grid-template-columns: 40px minmax(0, 1fr);
+
+    &__lines {
+      padding-left: 0;
+    }
+
+    &__note {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include mobile {
+    &__line {
+      font-size: $fs-md;
+    }
+  }
+}

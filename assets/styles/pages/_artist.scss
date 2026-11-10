@@ -1,0 +1,177 @@
+/* =====================
+  Artist Pages (Home, About, Albums)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.artist-tabs {
+  padding: 0 $space-lg;
+
+  @include mobile {
+    padding: 0 $space-sm;
+  }
+}
+
+.artist-body {
+  padding: $space-lg;
+
+  @include mobile {
+    padding: $space-md $space-sm;
+  }
+}
+
+.artist-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: $space-xxl;
+
+  @include tablet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// ---------- Artist pick card ----------
+.artist-pick {
+  @include flex-column($space-sm);
+
+  &__card {
+    @include flex-row($space-sm);
+    align-items: flex-start;
+    padding: $space-sm;
+    border-radius: $radius-md;
+    background-color: $color-bg-elevated;
+    @include transition(background-color);
+
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+  }
+
+  &__img {
+    @include square(88px);
+    border-radius: $radius-xs;
+    object-fit: cover;
+  }
+
+  &__text {
+    font-size: $fs-xs;
+    color: $color-text;
+  }
+
+  &__banner {
+    width: 100%;
+    border-radius: $radius-md;
+    object-fit: cover;
+  }
+}
+
+// ---------- About ----------
+.about {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 220px;
+  gap: $space-xl;
+
+  &__text {
+    @include flex-column($space-md);
+    font-size: $fs-sm;
+    line-height: 1.8;
+    color: $color-text;
+  }
+
+  &__stats {
+    @include flex-column($space-lg);
+  }
+
+  &__stat-value {
+    display: block;
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    color: $color-text-strong;
+  }
+
+  &__stat-city {
+    display: block;
+    font-size: $fs-sm;
+    font-weight: $fw-bold;
+    color: $color-text-strong;
+  }
+
+  &__stat-label {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  @include tablet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// Starburst ranking badge
+.rank-badge {
+  @include flex-center;
+  flex-direction: column;
+  @include square(96px);
+  background-color: $color-primary-dark;
+  clip-path: polygon(50% 0%, 61% 10%, 75% 6%, 79% 20%, 93% 25%, 89% 39%, 100% 50%, 89% 61%, 93% 75%, 79% 80%, 75% 94%, 61% 90%, 50% 100%, 39% 90%, 25% 94%, 21% 80%, 7% 75%, 11% 61%, 0% 50%, 11% 39%, 7% 25%, 21% 20%, 25% 6%, 39% 10%);
+
+  &__value {
+    font-size: $fs-lg;
+    font-weight: $fw-black;
+    color: $color-text-strong;
+  }
+
+  &__label {
+    font-size: $fs-xxs;
+    color: $color-text-strong;
+  }
+}
+
+// ---------- Albums list view ----------
+.album-list {
+  @include flex-column(0);
+}
+
+.album-row {
+  @include flex-row($space-md);
+  padding: $space-md 0;
+  border-bottom: 1px solid $color-border;
+
+  &__cover {
+    @include square(88px);
+    border-radius: $radius-xs;
+    object-fit: cover;
+  }
+
+  &__body {
+    @include flex-column($space-xs);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    color: $color-text-strong;
+    @include truncate;
+  }
+
+  &__meta {
+    @include flex-row($space-xs);
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__actions {
+    @include flex-row($space-xs);
+  }
+
+  @include mobile {
+    &__cover {
+      @include square(64px);
+    }
+
+    &__secondary {
+      display: none;
+    }
+  }
+}

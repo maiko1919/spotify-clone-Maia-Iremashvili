@@ -1,0 +1,146 @@
+/* =====================
+  Podcast & Episode Pages
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.rating {
+  @include flex-row(6px);
+
+  &__value {
+    color: $color-text-strong;
+  }
+
+  &__count {
+    font-size: $fs-xxs;
+    color: $color-text-muted;
+  }
+}
+
+.episode-list {
+  @include flex-column(0);
+}
+
+.episode {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: $space-md;
+  padding: $space-md 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &__cover {
+    @include square(88px);
+    border-radius: $radius-xs;
+    object-fit: cover;
+  }
+
+  &__body {
+    @include flex-column($space-xs);
+    min-width: 0;
+  }
+
+  &__title {
+    @include flex-row($space-xs);
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    color: $color-text-strong;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__type-icon {
+    @include square(16px);
+  }
+
+  &__meta {
+    @include flex-row($space-xs);
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__desc {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    @include line-clamp(1);
+  }
+
+  &__actions {
+    @include flex-row($space-xs);
+  }
+
+  @include mobile {
+    grid-template-columns: 64px minmax(0, 1fr);
+
+    &__cover {
+      @include square(64px);
+    }
+
+    &__desc {
+      @include line-clamp(2);
+    }
+  }
+}
+
+.about-box {
+  @include flex-column($space-xs);
+
+  &__title {
+    font-size: $fs-md;
+    font-weight: $fw-bold;
+    color: $color-text-strong;
+  }
+
+  &__text {
+    font-size: $fs-xs;
+    line-height: 1.6;
+    color: $color-text-muted;
+  }
+
+  &__link {
+    font-size: $fs-xs;
+    color: $color-text-muted;
+
+    &:hover {
+      color: $color-text;
+      text-decoration: underline;
+    }
+  }
+}
+
+// ---------- Episode video ----------
+.video {
+  position: relative;
+  max-width: 680px;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include flex-center;
+    @include square(56px);
+    border-radius: $radius-round;
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translate(-50%, -50%);
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+  }
+
+  &__play-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 3px;
+  }
+}
