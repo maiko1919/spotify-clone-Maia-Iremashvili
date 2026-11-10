@@ -1,0 +1,21 @@
+/* =====================
+  Typography Helpers
+===================== */
+@use "../abstracts/variables" as *;
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+.text-strong {
+  color: $color-text-strong;
+  font-weight: $fw-bold;
+}
+
+.dot-separator {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: $radius-round;
+  background-color: $color-text-muted;
+}

@@ -1,0 +1,83 @@
+/* =====================
+  Design Tokens (taken from the Figma file)
+===================== */
+
+// ---------- Colors: surfaces ----------
+$color-black: #000000;
+$color-bg-panel: #060606;
+$color-bg-elevated: #121212;
+$color-bg-hover: #1a1a1a;
+$color-bg-chip: #1f1f1f;
+$color-bg-player: #2c2f37;
+$color-bg-player-hover: #3a3e48;
+$color-border: #1f1f1f;
+$color-border-strong: #2a2a2a;
+$color-overlay: rgba(0, 0, 0, 0.55);
+
+// ---------- Colors: text ----------
+$color-text: #e0e0e0;
+$color-text-strong: #ffffff;
+$color-text-muted: #898989;
+$color-text-dim: #5c5c5c;
+
+// ---------- Colors: brand & accents ----------
+$color-primary: #1ed760;
+$color-primary-dark: #169c46;
+$color-danger: #d94b4b;
+
+// ---------- Typography ----------
+$font-main: "Satoshi", "Segoe UI", Roboto, Arial, sans-serif;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+$fw-black: 900;
+
+$fs-xxs: 11px;
+$fs-xs: 12px;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fs-lg: 20px;
+$fs-xl: 28px;
+$fs-xxl: 40px;
+$fs-hero: 56px;
+
+// ---------- Spacing ----------
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-sm: 12px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+
+// ---------- Radius ----------
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 10px;
+$radius-pill: 999px;
+$radius-round: 50%;
+
+// ---------- Layout sizes ----------
+$sidebar-width: 259px;
+$sidebar-collapsed-width: 72px;
+$header-height: 52px;
+$player-height: 72px;
+$player-offset: 96px; // player height + gaps, used as main padding-bottom
+$friends-width: 260px;
+$card-min-width: 150px;
+$aside-column-width: 280px;
+$mobile-nav-height: 64px;
+
+// ---------- Effects ----------
+$shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
+$shadow-button: 0 6px 16px rgba(0, 0, 0, 0.45);
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+
+// ---------- Breakpoints ----------
+$bp-wide: 1440px;
+$bp-desktop: 1200px;
+$bp-tablet: 1024px;
+$bp-mobile: 768px;
+$bp-small: 480px;
