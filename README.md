@@ -1,4 +1,4 @@
-# Spotify Web Player – Markup Clone (MPG Exam)
+# Spotify Web Player – Markup Clone
 
 A static HTML + SCSS clone of the Spotify web player, built from the Figma design.
 
