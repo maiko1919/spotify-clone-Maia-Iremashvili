@@ -1,0 +1,67 @@
+/* =====================
+  Browse Tiles (Search page)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.tile {
+  --tile-bg: #{$color-bg-chip};
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  padding: $space-sm;
+  border-radius: $radius-md;
+  overflow: hidden;
+  background-color: var(--tile-bg);
+  @include transition(transform);
+  @include focus-ring;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+    font-size: $fs-md;
+    font-weight: $fw-bold;
+    line-height: 1.2;
+    color: $color-text-strong;
+  }
+
+  // Rotated cover in the bottom-right corner (Figma detail)
+  &__img {
+    position: absolute;
+    right: -10%;
+    bottom: -6%;
+    width: 58%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: $radius-xs;
+    box-shadow: $shadow-card;
+    transform: rotate(25deg);
+    transition: transform $transition-base;
+  }
+
+  &:hover .tile__img {
+    transform: rotate(18deg) scale(1.05);
+  }
+}
+
+// ---------- Tile background colors ----------
+.tile--navy { --tile-bg: #1e3264; }
+.tile--orange { --tile-bg: #c35e10; }
+.tile--blue { --tile-bg: #27408b; }
+.tile--lavender { --tile-bg: #8d67ab; }
+.tile--magenta { --tile-bg: #af2896; }
+.tile--purple { --tile-bg: #8c67ac; }
+.tile--grey { --tile-bg: #777777; }
+.tile--amber { --tile-bg: #ba5d07; }
+.tile--green { --tile-bg: #148a08; }
+.tile--red-orange { --tile-bg: #dc4005; }
+.tile--plum { --tile-bg: #503750; }
+.tile--teal { --tile-bg: #006450; }
+.tile--crimson { --tile-bg: #e61e32; }
+.tile--midnight { --tile-bg: #223a6a; }
+.tile--steel { --tile-bg: #4f6d8f; }

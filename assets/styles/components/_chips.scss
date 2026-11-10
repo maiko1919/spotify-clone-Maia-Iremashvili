@@ -1,0 +1,41 @@
+/* =====================
+  Filter Chips
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.filters {
+  @include flex-row($space-md, space-between);
+  margin-bottom: $space-lg;
+
+  &__list {
+    @include flex-row($space-xs);
+    min-width: 0;
+    overflow-x: auto;
+    @include hide-scrollbar;
+  }
+}
+
+.chip {
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  white-space: nowrap;
+  color: $color-text;
+  background-color: $color-bg-chip;
+  @include transition(background-color);
+  @include focus-ring;
+
+  &:hover {
+    background-color: $color-border-strong;
+  }
+
+  // Active chip: high contrast
+  &--active,
+  &--active:hover {
+    color: $color-black;
+    font-weight: $fw-bold;
+    background-color: $color-text-strong;
+  }
+}

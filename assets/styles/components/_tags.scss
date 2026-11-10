@@ -1,0 +1,50 @@
+/* =====================
+  Genre Tags & Credits
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.tags {
+  @include flex-row($space-xs);
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 6px $space-sm;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-pill;
+  font-size: $fs-xs;
+  color: $color-text-muted;
+  @include transition(border-color);
+
+  &:hover {
+    border-color: $color-text-muted;
+    color: $color-text;
+  }
+}
+
+.credits {
+  @include flex-column($space-md);
+
+  &__item {
+    @include flex-row($space-sm);
+  }
+
+  &__avatar {
+    @include square(40px);
+    border-radius: $radius-round;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: block;
+    font-size: $fs-sm;
+    color: $color-text;
+  }
+
+  &__role {
+    display: block;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+}

@@ -1,0 +1,53 @@
+/* =====================
+  Artist Hero Banner
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.artist-hero {
+  @include flex-row($space-lg, space-between);
+  align-items: flex-end;
+  min-height: 290px;
+  padding: $space-lg $space-lg $space-xl;
+  background-color: #bdbdbd;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  &--daft-punk {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%), url("../img/artists/covers/cover_1.png");
+  }
+
+  &__name {
+    font-size: $fs-hero;
+    font-weight: $fw-bold;
+    line-height: 1.1;
+    color: $color-text-strong;
+  }
+
+  &__listeners {
+    margin-top: $space-xs;
+    font-size: $fs-xs;
+    color: $color-text;
+  }
+
+  &__actions {
+    @include flex-row($space-sm);
+
+    .icon-btn__img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    min-height: 220px;
+    padding: $space-md;
+
+    &__name {
+      font-size: $fs-xxl;
+    }
+  }
+}

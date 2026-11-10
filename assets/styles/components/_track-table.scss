@@ -1,0 +1,116 @@
+/* =====================
+  Track Table (album / playlist / liked songs / artist)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.track-table {
+  table-layout: fixed;
+  font-size: $fs-sm;
+
+  &__head-cell {
+    padding: $space-xs $space-sm;
+    font-size: $fs-xs;
+    font-weight: $fw-regular;
+    text-align: left;
+    color: $color-text-muted;
+    border-bottom: 1px solid $color-border-strong;
+  }
+
+  &__row {
+    @include transition(background-color);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &__cell {
+    padding: $space-sm;
+    color: $color-text-muted;
+    font-size: $fs-xs;
+    vertical-align: middle;
+
+    &:first-child {
+      border-radius: $radius-sm 0 0 $radius-sm;
+    }
+
+    &:last-child {
+      border-radius: 0 $radius-sm $radius-sm 0;
+    }
+  }
+
+  &__num {
+    width: 48px;
+    text-align: center;
+  }
+
+  &__duration {
+    width: 90px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__like {
+    width: 56px;
+  }
+
+  // Leading spacer row below the header
+  &__body::before {
+    content: "";
+    display: block;
+    height: $space-xs;
+  }
+}
+
+// ---------- Track (thumbnail + name + artist) ----------
+.track {
+  @include flex-row($space-sm);
+  min-width: 0;
+
+  &__thumb {
+    @include square(40px);
+    border-radius: $radius-xs;
+    object-fit: cover;
+  }
+
+  &__text {
+    min-width: 0;
+  }
+
+  &__name {
+    display: block;
+    font-size: $fs-sm;
+    color: $color-text-strong;
+    @include truncate;
+  }
+
+  &__artist {
+    display: block;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    @include truncate;
+  }
+}
+
+// Hide less important columns on small screens
+@include mobile {
+  .track-table__optional {
+    display: none;
+  }
+
+  .track-table__num {
+    width: 28px;
+  }
+
+  .track-table__cell {
+    padding: $space-xs $space-xxs;
+  }
+
+  .track-table__duration {
+    width: 48px;
+  }
+
+  .track-table__like {
+    width: 40px;
+  }
+}

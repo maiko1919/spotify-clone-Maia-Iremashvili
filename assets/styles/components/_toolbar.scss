@@ -1,0 +1,42 @@
+/* =====================
+  Toolbar (view switch, sort, filter, search)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.toolbar {
+  @include flex-row($space-md, space-between);
+  flex-wrap: wrap;
+  margin-bottom: $space-lg;
+
+  &__group {
+    @include flex-row($space-xs);
+  }
+
+  &__btn {
+    @include flex-row(6px);
+    padding: 6px $space-sm;
+    border-radius: $radius-sm;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    @include transition(background-color);
+    @include focus-ring;
+
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+  }
+
+  &__btn--active {
+    background-color: $color-bg-chip;
+
+    .toolbar__icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__icon {
+    max-width: 18px;
+    max-height: 18px;
+  }
+}

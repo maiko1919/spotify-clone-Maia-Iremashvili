@@ -1,0 +1,111 @@
+/* =====================
+  Buttons
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ---------- Round icon button (header, player, actions) ----------
+.icon-btn {
+  @include flex-center;
+  @include square(34px);
+  border-radius: $radius-round;
+  @include transition(background-color);
+  @include focus-ring;
+
+  &:hover {
+    background-color: $color-bg-hover;
+
+    .icon-btn__img {
+      filter: brightness(1.6);
+    }
+  }
+
+  &__img {
+    max-width: 20px;
+    max-height: 20px;
+    object-fit: contain;
+  }
+
+  &--sm {
+    @include square(28px);
+
+    .icon-btn__img {
+      max-width: 16px;
+      max-height: 16px;
+    }
+  }
+
+  &--on-player:hover {
+    background-color: $color-bg-player-hover;
+  }
+
+  // Liked (green heart)
+  &--liked .icon-btn__img {
+    filter: none;
+  }
+}
+
+// ---------- Green play button ----------
+.play-btn {
+  @include flex-center;
+  @include square(36px);
+  border-radius: $radius-round;
+  background-color: $color-primary;
+  @include transition(transform);
+  @include focus-ring;
+
+  &:hover {
+    transform: scale(1.06);
+    background-color: $color-primary;
+  }
+
+  &__img {
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+  }
+
+  &--sm {
+    @include square(32px);
+  }
+
+  &--lg {
+    @include square(44px);
+
+    .play-btn__img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Pause icon sits centered (no optical offset)
+  &--pause .play-btn__img {
+    margin-left: 0;
+  }
+}
+
+// ---------- Outlined pill button (Follow etc.) ----------
+.pill-btn {
+  @include flex-row($space-xs);
+  padding: $space-xs $space-md;
+  border-radius: $radius-pill;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  color: $color-text;
+  background-color: rgba(255, 255, 255, 0.12);
+  @include transition(background-color);
+  @include focus-ring;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $color-text-dim;
+  }
+
+  &__icon {
+    @include square(12px);
+  }
+}

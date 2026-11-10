@@ -1,0 +1,81 @@
+/* =====================
+  Media Head (title, meta line, action buttons)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.media-head {
+  @include flex-column($space-sm);
+  margin-bottom: $space-lg;
+
+  &__title {
+    font-size: $fs-xl;
+    font-weight: $fw-bold;
+    line-height: 1.2;
+    color: $color-text-strong;
+  }
+
+  &__meta {
+    @include flex-row($space-xs);
+    flex-wrap: wrap;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+  }
+
+  &__meta-icon {
+    @include square(14px);
+  }
+
+  &__meta-strong {
+    color: $color-text;
+  }
+
+  &__actions {
+    @include flex-row($space-sm);
+    flex-wrap: wrap;
+  }
+
+  &__actions-end {
+    margin-left: auto;
+  }
+
+  @include mobile {
+    &__title {
+      font-size: $fs-lg;
+    }
+  }
+}
+
+// ---------- Two-column detail layout (content | cover aside) ----------
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) $aside-column-width;
+  gap: $space-xl;
+
+  &__aside {
+    @include flex-column($space-lg);
+  }
+
+  &__cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: $radius-md;
+    box-shadow: $shadow-card;
+  }
+
+  @include tablet {
+    grid-template-columns: minmax(0, 1fr);
+
+    &__aside {
+      order: -1;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    &__cover {
+      width: 200px;
+    }
+  }
+}

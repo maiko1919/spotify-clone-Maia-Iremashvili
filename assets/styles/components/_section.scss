@@ -1,0 +1,30 @@
+/* =====================
+  Content Section (title + controls + row)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.section {
+  margin-bottom: $space-xl;
+
+  &__head {
+    @include flex-row($space-md, space-between);
+    margin-bottom: $space-md;
+  }
+
+  &__title {
+    font-size: $fs-lg;
+    font-weight: $fw-bold;
+    color: $color-text-strong;
+  }
+
+  &__subtitle {
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    color: $color-text;
+  }
+
+  &__controls {
+    @include flex-row($space-xxs);
+  }
+}

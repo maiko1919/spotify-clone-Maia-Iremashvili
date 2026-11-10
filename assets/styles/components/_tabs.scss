@@ -1,0 +1,51 @@
+/* =====================
+  Underlined Tabs (Lyrics/Credits, Artist menu)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.tabs {
+  @include flex-row($space-xl);
+  border-bottom: 1px solid $color-border-strong;
+  overflow-x: auto;
+  @include hide-scrollbar;
+
+  &__link {
+    position: relative;
+    flex-shrink: 0;
+    padding: $space-sm 0;
+    font-size: $fs-xs;
+    color: $color-text-muted;
+    white-space: nowrap;
+    @include transition(color);
+    @include focus-ring;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  &__link--active {
+    color: $color-text-strong;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      border-radius: $radius-pill;
+      background-color: $color-primary;
+    }
+  }
+
+  &__end {
+    @include flex-row($space-xs);
+    margin-left: auto;
+  }
+
+  @include mobile {
+    gap: $space-lg;
+  }
+}
