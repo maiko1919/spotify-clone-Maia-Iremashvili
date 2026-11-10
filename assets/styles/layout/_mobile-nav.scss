@@ -1,0 +1,48 @@
+/* =====================
+  Mobile Bottom Navigation (visible only on phones)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.mobile-nav {
+  display: none;
+
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    display: block;
+    width: 100%;
+    height: $mobile-nav-height;
+    background: linear-gradient(to top, $color-black 60%, rgba(0, 0, 0, 0.85));
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 100%;
+  }
+
+  &__link {
+    @include flex-center($space-xxs);
+    flex-direction: column;
+    height: 100%;
+    font-size: $fs-xxs;
+    color: $color-text-muted;
+    @include focus-ring;
+  }
+
+  &__icon {
+    @include square(22px);
+    object-fit: contain;
+  }
+
+  &__link--active {
+    color: $color-text-strong;
+
+    .mobile-nav__icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+/* =====================
+  App Shell (Sidebar | Main | optional Friends column)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.app {
+  display: grid;
+  grid-template-columns: $sidebar-width minmax(0, 1fr);
+  column-gap: $space-xs;
+  min-height: 100vh;
+  padding: 0 $space-xs;
+
+  // Home page shows the "Friends Activity" column on wide screens
+  &--with-friends {
+    @include wide-only {
+      grid-template-columns: $sidebar-width minmax(0, 1fr) $friends-width;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: $sidebar-collapsed-width minmax(0, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0 $space-xs;
+  }
+}
+
+/* =====================
+  Main Content Column
+===================== */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  // Bottom player is fixed, so main keeps room for it
+  padding-bottom: $player-offset;
+
+  @include mobile {
+    padding-bottom: calc(#{$player-offset} + #{$mobile-nav-height});
+  }
+
+  &__panel {
+    flex: 1;
+    min-height: calc(100vh - #{$header-height} - #{$player-offset});
+    padding: $space-md $space-lg $space-xl;
+    background-color: $color-bg-panel;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    overflow: hidden;
+
+    @include mobile {
+      padding: $space-md $space-sm $space-lg;
+    }
+  }
+
+  // Variant used by detail pages that carry a colored gradient
+  &__panel--flush {
+    padding: 0;
+  }
+}

@@ -1,0 +1,71 @@
+/* =====================
+  Friends Activity (right column, Home page, wide screens)
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.friends {
+  display: none;
+
+  @include wide-only {
+    position: sticky;
+    top: 0;
+    display: block;
+    height: 100vh;
+    padding: calc(#{$header-height} + #{$space-md}) $space-xs $player-offset;
+  }
+
+  &__head {
+    @include flex-row($space-xs, space-between);
+    margin-bottom: $space-lg;
+  }
+
+  &__title {
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $color-text;
+  }
+
+  &__list {
+    @include flex-column($space-lg);
+  }
+
+  &__item {
+    @include flex-row($space-sm);
+    align-items: flex-start;
+  }
+
+  &__avatar {
+    @include square(32px);
+    border-radius: $radius-round;
+  }
+
+  &__body {
+    min-width: 0;
+    font-size: $fs-xs;
+  }
+
+  &__name {
+    display: block;
+    color: $color-text-muted;
+    @include truncate;
+  }
+
+  &__track {
+    @include flex-row($space-xxs);
+    color: $color-text;
+    @include truncate;
+  }
+
+  &__artist {
+    color: $color-text-muted;
+  }
+
+  &__playing {
+    @include square(12px);
+  }
+
+  &__time {
+    color: $color-text-muted;
+  }
+}

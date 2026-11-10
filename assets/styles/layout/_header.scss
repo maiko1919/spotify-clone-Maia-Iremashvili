@@ -1,0 +1,116 @@
+/* =====================
+  Top Header Styles
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  @include flex-row($space-md, space-between);
+  height: $header-height;
+  background-color: $color-black;
+
+  // ---------- Left: Home / Discover / Search ----------
+  &__nav {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__tabs {
+    @include flex-row($space-xs);
+  }
+
+  &__tab {
+    @include flex-row($space-sm);
+    min-width: 133px;
+    padding: $space-xs $space-md;
+    border-radius: $radius-md;
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    @include transition(background-color);
+    @include focus-ring;
+
+    &:hover {
+      color: $color-text;
+      background-color: $color-bg-hover;
+    }
+  }
+
+  &__tab-icon {
+    @include square(20px);
+    object-fit: contain;
+  }
+
+  &__tab--active {
+    color: $color-text-strong;
+    font-weight: $fw-medium;
+    background-color: $color-bg-elevated;
+
+    .topbar__tab-icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Search tab turns into an input on the Search page
+  &__search {
+    @include flex-row($space-sm);
+    width: 230px;
+    padding: $space-xs $space-md;
+    border-radius: $radius-md;
+    background-color: $color-bg-elevated;
+
+    &:focus-within {
+      outline: 1px solid $color-text-dim;
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    font-size: $fs-sm;
+    color: $color-text-strong;
+    outline: none;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+
+  // ---------- Right: action icons ----------
+  &__actions {
+    @include flex-row($space-xs);
+    flex-shrink: 0;
+  }
+
+  &__avatar {
+    @include square(28px);
+    border-radius: $radius-round;
+    object-fit: cover;
+  }
+
+  // ---------- Responsive ----------
+  @include desktop-down {
+    &__tab {
+      min-width: 0;
+    }
+  }
+
+  @include mobile {
+    gap: $space-xs;
+
+    // Main tabs live in the bottom .mobile-nav on phones
+    &__tabs .topbar__tab {
+      display: none;
+    }
+
+    &__search {
+      width: auto;
+      flex: 1;
+    }
+
+    &__action--optional {
+      display: none;
+    }
+  }
+}

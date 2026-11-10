@@ -1,0 +1,115 @@
+/* =====================
+  Sidebar Styles
+===================== */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-bottom: $space-xs;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+
+  // ---------- "My Library" row (aligned with the top header) ----------
+  &__top {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+  }
+
+  &__library-link {
+    @include flex-row($space-sm);
+    width: 100%;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-md;
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    @include transition(background-color);
+    @include focus-ring;
+
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+  }
+
+  // ---------- Bordered list panel ----------
+  &__list {
+    @include flex-column($space-xxs);
+    flex: 1;
+    padding: $space-md $space-xs;
+    border-right: 2px solid $color-border;
+    border-bottom-left-radius: $radius-lg;
+    overflow-y: auto;
+    @include hide-scrollbar;
+  }
+
+  &__link {
+    @include flex-row($space-sm);
+    padding: $space-xs $space-sm;
+    border-radius: $radius-md;
+    font-size: $fs-sm;
+    color: $color-text-muted;
+    @include transition(background-color);
+    @include focus-ring;
+
+    &:hover {
+      color: $color-text;
+      background-color: $color-bg-hover;
+    }
+  }
+
+  &__icon {
+    @include square(22px);
+    object-fit: contain;
+  }
+
+  &__label {
+    flex: 1;
+    @include truncate;
+  }
+
+  &__chevron {
+    @include square(14px);
+    opacity: 0.8;
+  }
+
+  // Active state: lighter background + white text/icon
+  &__link--active,
+  &__library-link--active {
+    color: $color-text-strong;
+    font-weight: $fw-bold;
+    background-color: $color-bg-chip;
+
+    .sidebar__icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // ---------- Tablet: icons only ----------
+  @include tablet {
+    &__library-link,
+    &__link {
+      justify-content: center;
+      padding: $space-sm 0;
+    }
+
+    &__label,
+    &__chevron {
+      display: none;
+    }
+  }
+
+  // ---------- Mobile: replaced by the bottom .mobile-nav ----------
+  @include mobile {
+    display: none;
+  }
+}
