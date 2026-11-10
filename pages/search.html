@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spotify web player markup clone - Search">
+  <title>Search | Spotify Clone</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+</head>
+<body>
+  <div class="app">
+    <!-- =====================
+      Sidebar (left navigation)
+    ===================== -->
+    <aside class="sidebar" aria-label="Your library">
+      <nav class="sidebar__nav" aria-label="Library navigation">
+        <ul class="sidebar__top">
+          <li class="sidebar__item">
+            <a class="sidebar__library-link" href="library.html">
+              <img class="sidebar__icon" src="../assets/img/icons/library.svg" alt="">
+              <span class="sidebar__label">My Library</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="sidebar__list">
+          <li class="sidebar__item sidebar__item--secondary">
+            <a class="sidebar__link" href="library.html">
+              <img class="sidebar__icon" src="../assets/img/icons/pin.svg" alt="">
+              <span class="sidebar__label">Pins</span>
+              <img class="sidebar__chevron" src="../assets/img/icons/chevron-right.svg" alt="">
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a class="sidebar__link" href="playlist.html">
+              <img class="sidebar__icon" src="../assets/img/icons/playlist.svg" alt="">
+              <span class="sidebar__label">Playlists</span>
+              <img class="sidebar__chevron" src="../assets/img/icons/chevron-right.svg" alt="">
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a class="sidebar__link" href="liked-songs.html">
+              <img class="sidebar__icon" src="../assets/img/icons/hearth.svg" alt="">
+              <span class="sidebar__label">Liked songs</span>
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--secondary">
+            <a class="sidebar__link" href="library.html">
+              <img class="sidebar__icon" src="../assets/img/icons/bookmark.svg" alt="">
+              <span class="sidebar__label">Saves</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a class="sidebar__link" href="album.html">
+              <img class="sidebar__icon" src="../assets/img/icons/albom.svg" alt="">
+              <span class="sidebar__label">Albums</span>
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--secondary">
+            <a class="sidebar__link" href="library.html">
+              <img class="sidebar__icon" src="../assets/img/icons/folder.svg" alt="">
+              <span class="sidebar__label">Folders</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a class="sidebar__link" href="podcast.html">
+              <img class="sidebar__icon" src="../assets/img/icons/list_microphone.svg" alt="">
+              <span class="sidebar__label">Podcasts</span>
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--secondary">
+            <a class="sidebar__link" href="library.html">
+              <img class="sidebar__icon" src="../assets/img/icons/audiobook.svg" alt="">
+              <span class="sidebar__label">Audiobooks</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a class="sidebar__link" href="artist.html">
+              <img class="sidebar__icon" src="../assets/img/icons/artist.svg" alt="">
+              <span class="sidebar__label">Artists</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- =====================
+      Main Content
+    ===================== -->
+    <main class="main">
+      <!-- =====================
+        Top Header
+      ===================== -->
+      <header class="topbar">
+        <nav class="topbar__nav" aria-label="Main">
+          <ul class="topbar__tabs">
+            <li>
+              <a class="topbar__tab" href="../index.html">
+                <img class="topbar__tab-icon" src="../assets/img/icons/home-inactive.svg" alt="">
+                <span class="topbar__tab-label">Home</span>
+              </a>
+            </li>
+            <li>
+              <a class="topbar__tab" href="discover.html">
+                <img class="topbar__tab-icon" src="../assets/img/icons/discover.svg" alt="">
+                <span class="topbar__tab-label">Discover</span>
+              </a>
+            </li>
+            <li>
+              <form class="topbar__search" role="search" action="#">
+                <img class="topbar__tab-icon" src="../assets/img/icons/search.svg" alt="">
+                <label class="visually-hidden" for="search-input">Search</label>
+                <input class="topbar__search-input" id="search-input" type="search" placeholder="Search...">
+              </form>
+            </li>
+          </ul>
+        </nav>
+        <div class="topbar__actions">
+          <button class="icon-btn topbar__action--optional" type="button" aria-label="Notifications"><img class="icon-btn__img" src="../assets/img/icons/notification.svg" alt=""></button>
+          <button class="icon-btn topbar__action--optional" type="button" aria-label="Private session"><img class="icon-btn__img" src="../assets/img/icons/lock.svg" alt=""></button>
+          <button class="icon-btn topbar__action--optional" type="button" aria-label="Friends activity"><img class="icon-btn__img" src="../assets/img/icons/users.svg" alt=""></button>
+          <button class="icon-btn" type="button" aria-label="Settings"><img class="icon-btn__img" src="../assets/img/icons/settings.svg" alt=""></button>
+          <a class="icon-btn" href="#" aria-label="Profile"><img class="topbar__avatar" src="../assets/img/users/user_2.png" alt="Your profile picture"></a>
+        </div>
+      </header>
+
+      <div class="main__panel">
+        <h1 class="visually-hidden">Search</h1>
+
+        <!-- Recent searches -->
+        <section class="section" aria-labelledby="recent-title">
+          <div class="section__head">
+            <h2 class="section__title" id="recent-title">Recent searches</h2>
+            <button class="icon-btn icon-btn--sm" type="button" aria-label="More options"><img class="icon-btn__img" src="../assets/img/icons/dots.svg" alt=""></button>
+          </div>
+          <ul class="recent">
+            <li class="recent__item">
+              <a class="recent__link" href="artist.html">
+                <img class="recent__img recent__img--round" src="../assets/img/artists/artist_2.png" alt="Daft Punk">
+                <span class="recent__name">Daft Punk</span>
+                <span class="recent__type">Artist</span>
+              </a>
+              <button class="recent__remove" type="button" aria-label="Remove Daft Punk from recent searches"><img class="recent__remove-icon" src="../assets/img/icons/close.svg" alt=""></button>
+            </li>
+            <li class="recent__item">
+              <a class="recent__link" href="artist.html">
+                <img class="recent__img recent__img--round" src="../assets/img/artists/artist_3.png" alt="David Bowie">
+                <span class="recent__name">David Bowie</span>
+                <span class="recent__type">Artist</span>
+              </a>
+              <button class="recent__remove" type="button" aria-label="Remove David Bowie from recent searches"><img class="recent__remove-icon" src="../assets/img/icons/close.svg" alt=""></button>
+            </li>
+            <li class="recent__item">
+              <a class="recent__link" href="album.html">
+                <img class="recent__img" src="../assets/img/albums/album_6.png" alt="Black Holes and Revelations">
+                <span class="recent__name">Black Holes and Revelations</span>
+                <span class="recent__type">Muse</span>
+              </a>
+              <button class="recent__remove" type="button" aria-label="Remove Black Holes and Revelations from recent searches"><img class="recent__remove-icon" src="../assets/img/icons/close.svg" alt=""></button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Browse all -->
+        <section class="browse" aria-labelledby="browse-title">
+          <h2 class="browse__title" id="browse-title">Browse all</h2>
+
+          <section class="section" aria-labelledby="discover-title">
+            <div class="section__head">
+              <h3 class="section__subtitle" id="discover-title">Discover</h3>
+              <div class="section__controls">
+                <button class="icon-btn icon-btn--sm" type="button" aria-label="Scroll left"><img class="icon-btn__img" src="../assets/img/icons/arrows/arrow-left.svg" alt=""></button>
+                <button class="icon-btn icon-btn--sm" type="button" aria-label="Scroll right"><img class="icon-btn__img" src="../assets/img/icons/arrows/arrow-right-big.svg" alt=""></button>
+              </div>
+            </div>
+            <ul class="card-row" data-scroll-row>
+            <li class="card-row__item">
+              <a class="tile tile--navy" href="playlist.html">
+                <h4 class="tile__title">Made For You</h4>
+                <img class="tile__img" src="../assets/img/covers/cover_9.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--orange" href="playlist.html">
+                <h4 class="tile__title">New Releases</h4>
+                <img class="tile__img" src="../assets/img/albums/album_14.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--blue" href="playlist.html">
+                <h4 class="tile__title">Spotify Classics</h4>
+                <img class="tile__img" src="../assets/img/albums/album_13.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--lavender" href="playlist.html">
+                <h4 class="tile__title">Charts</h4>
+                <img class="tile__img" src="../assets/img/albums/album_12.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--magenta" href="playlist.html">
+                <h4 class="tile__title">Trending</h4>
+                <img class="tile__img" src="../assets/img/albums/album_11.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--purple" href="playlist.html">
+                <h4 class="tile__title">Discover</h4>
+                <img class="tile__img" src="../assets/img/albums/album_10.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--grey" href="playlist.html">
+                <h4 class="tile__title">Spotify Singles</h4>
+                <img class="tile__img" src="../assets/img/albums/album_9.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--amber" href="playlist.html">
+                <h4 class="tile__title">Decades</h4>
+                <img class="tile__img" src="../assets/img/albums/album_8.png" alt="" loading="lazy">
+              </a>
+            </li>
+            </ul>
+          </section>
+
+          <section class="section" aria-labelledby="genres-title">
+            <div class="section__head">
+              <h3 class="section__subtitle" id="genres-title">Genres</h3>
+              <div class="section__controls">
+                <button class="icon-btn icon-btn--sm" type="button" aria-label="Scroll left"><img class="icon-btn__img" src="../assets/img/icons/arrows/arrow-left.svg" alt=""></button>
+                <button class="icon-btn icon-btn--sm" type="button" aria-label="Scroll right"><img class="icon-btn__img" src="../assets/img/icons/arrows/arrow-right-big.svg" alt=""></button>
+              </div>
+            </div>
+            <ul class="card-row" data-scroll-row>
+            <li class="card-row__item">
+              <a class="tile tile--green" href="playlist.html">
+                <h4 class="tile__title">Pop</h4>
+                <img class="tile__img" src="../assets/img/albums/album_22.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--red-orange" href="playlist.html">
+                <h4 class="tile__title">Country</h4>
+                <img class="tile__img" src="../assets/img/albums/album_15.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--plum" href="playlist.html">
+                <h4 class="tile__title">Hip-Hop</h4>
+                <img class="tile__img" src="../assets/img/albums/album_21.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--teal" href="playlist.html">
+                <h4 class="tile__title">Rock</h4>
+                <img class="tile__img" src="../assets/img/albums/album_20.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--crimson" href="playlist.html">
+                <h4 class="tile__title">Indie</h4>
+                <img class="tile__img" src="../assets/img/albums/album_19.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--midnight" href="playlist.html">
+                <h4 class="tile__title">Punk</h4>
+                <img class="tile__img" src="../assets/img/albums/album_18.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--crimson" href="playlist.html">
+                <h4 class="tile__title">Metal</h4>
+                <img class="tile__img" src="../assets/img/albums/album_17.png" alt="" loading="lazy">
+              </a>
+            </li>
+            <li class="card-row__item">
+              <a class="tile tile--steel" href="playlist.html">
+                <h4 class="tile__title">Instrumental</h4>
+                <img class="tile__img" src="../assets/img/albums/album_16.png" alt="" loading="lazy">
+              </a>
+            </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- =====================
+    Bottom Player (fixed)
+  ===================== -->
+  <footer class="player" aria-label="Now playing">
+    <div class="player__bar">
+      <!-- Left: track info -->
+      <div class="player-left">
+        <img class="player-left__cover" src="../assets/img/covers/small_cover.png" alt="Random Access Memories cover">
+        <div class="player-left__info">
+          <a class="player-left__title" href="song.html">Get Lucky</a>
+          <a class="player-left__artist" href="artist.html">Daft Punk</a>
+          <a class="player-left__album" href="album.html">Random Access Memories</a>
+        </div>
+        <span class="player-left__action"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Save to Liked Songs" data-like aria-pressed="false"><img class="icon-btn__img" src="../assets/img/icons/hearth.svg" alt=""></button></span>
+      </div>
+
+      <!-- Center: playback controls + progress -->
+      <div class="player-center">
+        <div class="player-center__controls">
+          <span class="player-center__secondary"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Shuffle"><img class="icon-btn__img" src="../assets/img/icons/player/shuffle.svg" alt=""></button></span>
+          <span class="player-center__secondary"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Previous"><img class="icon-btn__img" src="../assets/img/icons/player/prev.svg" alt=""></button></span>
+          <button class="play-btn play-btn--sm play-btn--pause" type="button" aria-label="Pause" data-play-toggle>
+            <img class="play-btn__img" src="../assets/img/icons/player/pause-black.svg" alt="">
+          </button>
+          <span class="player-center__secondary"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Next"><img class="icon-btn__img" src="../assets/img/icons/player/next.svg" alt=""></button></span>
+          <span class="player-center__secondary"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Repeat"><img class="icon-btn__img" src="../assets/img/icons/player/repeat.svg" alt=""></button></span>
+        </div>
+        <div class="player-center__progress">
+          <span class="player__time">2:23</span>
+          <label class="visually-hidden" for="player-progress">Song progress</label>
+          <input class="range range--progress" id="player-progress" type="range" min="0" max="100" value="52" data-range>
+          <span class="player__time">4:45</span>
+        </div>
+      </div>
+
+      <!-- Right: extra actions + volume -->
+      <div class="player-right">
+        <span class="player-right__optional"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Add to playlist"><img class="icon-btn__img" src="../assets/img/icons/add-to-playlist.svg" alt=""></button></span>
+        <span class="player-right__optional"><button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Lyrics"><img class="icon-btn__img" src="../assets/img/icons/now-playing.svg" alt=""></button></span>
+        <button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Connect to a device"><img class="icon-btn__img" src="../assets/img/icons/player/devices.svg" alt=""></button>
+        <div class="player-right__volume">
+          <button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Mute"><img class="icon-btn__img" src="../assets/img/icons/player/volume.svg" alt=""></button>
+          <label class="visually-hidden" for="player-volume">Volume</label>
+          <input class="range range--volume" id="player-volume" type="range" min="0" max="100" value="70" data-range>
+        </div>
+        <span class="player-right__divider" aria-hidden="true"></span>
+        <img class="player-right__device" src="../assets/img/icons/player/player_blue_icon.svg" alt="Listening on this computer">
+        <button class="icon-btn icon-btn--sm icon-btn--on-player" type="button" aria-label="Queue"><img class="icon-btn__img" src="../assets/img/icons/player/list.svg" alt=""></button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================
+    Mobile Bottom Navigation
+  ===================== -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <ul class="mobile-nav__list">
+      <li><a class="mobile-nav__link" href="../index.html"><img class="mobile-nav__icon" src="../assets/img/icons/home-inactive.svg" alt="">Home</a></li>
+      <li><a class="mobile-nav__link" href="discover.html"><img class="mobile-nav__icon" src="../assets/img/icons/discover.svg" alt="">Discover</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--active" href="search.html"><img class="mobile-nav__icon" src="../assets/img/icons/search.svg" alt="">Search</a></li>
+      <li><a class="mobile-nav__link" href="library.html"><img class="mobile-nav__icon" src="../assets/img/icons/library.svg" alt="">Library</a></li>
+      <li><a class="mobile-nav__link" href="liked-songs.html"><img class="mobile-nav__icon" src="../assets/img/icons/me.svg" alt="">Me</a></li>
+    </ul>
+  </nav>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
